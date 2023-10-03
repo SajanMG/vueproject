@@ -1,14 +1,14 @@
 <template>
-    <h1>This is signup page</h1>
+    <h1>This is Login page</h1>
     <img src="https://electricloans.com.au/wp-content/themes/theme/_assets/images/Logo.svg" alt="logo" />
 
     <div class="form">
         <input type="name" v-model="name" placeholder="enter name" />
         <input type="email" v-model="email" placeholder="enter email" />
         <input type="password" v-model="password" placeholder="enter password" />
-        <button type="submit" @click=signup()>Signup</button>
+        <button type="submit" @click=login()>Login</button>
         <p>
-            <router-link to="Login">Login</router-link>
+            <router-link to="Signup">SignUp</router-link>
         </p>
     </div>
 </template>
@@ -16,7 +16,7 @@
 <script>
     import axios from 'axios'
 export default {
-    name: 'Signup',
+    name: 'Login',
 
 data() {
 return {
@@ -27,13 +27,13 @@ return {
 },
 
 methods: {
-    async signup() {
-        let result = await axios.post(`http://localhost:3000/users`,{
+    async login() {
+        let result = await axios.get(`http://localhost:3000/users`,{
             name: this.name,
             email: this.email,
             password:this.password
         });
-        if (result.status == 201){
+        if (result.status == 200){
             localStorage.setItem("user-info", JSON.stringify(result));
             this.$router.push({name: 'Home'});
         }
@@ -52,6 +52,7 @@ methods: {
     width: 300px;
     height: 50px;
     margin-bottom: 1rem;
+    margin-inline:auto;
     border: 1px solid skyblue;
     padding-left: 20px;
 }
