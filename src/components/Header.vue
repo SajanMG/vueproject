@@ -1,16 +1,26 @@
 <template>
     <div class="nav">
         <router-link to="/">Home</router-link>
-        <router-link to="Add">Add</router-link>
-        <router-link to="Update">Update</router-link>
-        <router-link to="Login">Logout</router-link>
+        <router-link to="/Add">Add</router-link>
+        <router-link to="/Update">Update</router-link>
+        <a href="#" v-on:click="logout()">Logout</a>
     </div>
-
 </template>
 <script>
 export default {
     name: 'Header',
-    component: 'Header',
+
+    methods: {
+        logout() {
+            try {
+                let result = localStorage.removeItem('user-info');
+                this.$router.push({ name: 'Login' });
+                console.log(result)
+            } catch {
+                console.error("error while logging out:", error);
+            }
+        }
+    }
 }
 
 </script>

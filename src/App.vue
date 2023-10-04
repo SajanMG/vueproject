@@ -1,4 +1,4 @@
-<script setup>
+<script>
 import { RouterLink, RouterView } from 'vue-router'
 import Signup from './views/Signup.vue'
 </script>
@@ -8,6 +8,4 @@ import Signup from './views/Signup.vue'
   <RouterView />
 </template>
 
-<style scoped>
- 
-</style>
+<style></style>

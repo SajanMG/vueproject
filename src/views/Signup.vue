@@ -8,37 +8,37 @@
         <input type="password" v-model="password" placeholder="enter password" />
         <button type="submit" @click=signup()>Signup</button>
         <p>
-            <router-link to="Login">Login</router-link>
+            <router-link to="/Login">Login</router-link>
         </p>
     </div>
 </template>
 
 <script>
-    import axios from 'axios'
+import axios from 'axios'
 export default {
     name: 'Signup',
 
-data() {
-return {
-    name:'',
-    email:'',
-    password:''
-}
-},
+    data() {
+        return {
+            name: '',
+            email: '',
+            password: ''
+        }
+    },
 
-methods: {
-    async signup() {
-        let result = await axios.post(`http://localhost:3000/users`,{
-            name: this.name,
-            email: this.email,
-            password:this.password
-        });
-        if (result.status == 201){
-            localStorage.setItem("user-info", JSON.stringify(result));
-            this.$router.push({name: 'Home'});
+    methods: {
+        async signup() {
+            let result = await axios.post(`http://localhost:3000/users`, {
+                name: this.name,
+                email: this.email,
+                password: this.password
+            });
+            if (result.status == 201) {
+                localStorage.setItem("user-info", JSON.stringify(result));
+                this.$router.push({ name: 'Home' });
+            }
         }
     }
-}
 }
 
 </script>
@@ -47,7 +47,8 @@ methods: {
 .form {
     margin-top: 1rem;
 }
-.form input{
+
+.form input {
     display: block;
     width: 300px;
     height: 50px;

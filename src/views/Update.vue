@@ -14,19 +14,17 @@ export default {
     },
     data() {
         return {
-            name:''
+            name: ''
         }
     },
 
-    mounted(){
-        let user = JSON.parse(localStorage.getItem('user-info'));
+    mounted() {
+        let user = localStorage.getItem('user-info');
+        this.name = JSON.parse(user).name;
         if (!user) {
-            this.$router.push({name: 'Signup'});
-        } else {
-            this.name = user.data.name;
-        };
+            this.$router.push({ name: 'Signup' });
+        }
     }
 }
 </script>
-<style>
-</style>
+<style></style>
