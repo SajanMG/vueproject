@@ -12,5 +12,19 @@
       "password": "hello",
       "id": 2
     }
+  ],
+  "hotel": [
+    {
+      "name": "Pizza nepal shop",
+      "contact": "0449899840",
+      "location": "Stafford",
+      "id": 2
+    },
+    {
+      "name": "Santosh Pizza",
+      "contact": "0449899840",
+      "location": "Stafford",
+      "id": 3
+    }
   ]
 }

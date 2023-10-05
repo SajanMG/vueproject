@@ -53,6 +53,7 @@ export default {
     width: 300px;
     height: 50px;
     margin-bottom: 1rem;
+    margin-inline: auto;
     border: 1px solid skyblue;
     padding-left: 20px;
 }
